@@ -1,6 +1,6 @@
 <template>
     <div class="leftNavCls">
-        <router-link class="item" tag="div" to="/two/twoc1/red">
+        <router-link class="item" tag="div" :to="{name:'twoC1',params:{color:'#31f609'}}">
             <span>贰点壹</span>
             <left-right-text :info="{text:'二级路由',color:'#000',bgColor:'#fff'}"></left-right-text>
         </router-link>

@@ -4,7 +4,7 @@
             <span>壹</span>
             <left-right-text :info="{text:'一级路由',color:'#000',bgColor:'#fff'}"></left-right-text>
         </router-link>
-        <router-link class='item' to="/two/twoc1/red" tag="div">
+        <router-link class='item' to="/two" tag="div">
             <span>贰</span>
             <left-right-text :info="{text:'一级路由',color:'#000',bgColor:'#fff'}"></left-right-text>
         </router-link>

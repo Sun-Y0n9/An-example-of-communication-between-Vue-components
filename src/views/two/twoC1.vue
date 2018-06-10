@@ -20,7 +20,7 @@ export default {
         }
     },
     created(){
-        this.bgC = this.$route.params.color;
+        this.bgC = this.$route.params.color || "#31f609";
     },
     methods:{
         createRandom(){
@@ -31,6 +31,7 @@ export default {
         },
         backToR1Params(){
             this.$router.push({name:"one",params:{random:this.r}});
+            // this.$router.push({path:"/one",params:{random:this.r}});
         }
     },
     components: {

@@ -30,7 +30,7 @@
             <trident></trident>
             <left-right-text :info="{text:'Trident子组件',color:'#000',bgColor:'#F7E788'}"></left-right-text>
         </div>
-        <div class="routerParams">
+        <div class="routerParams" @click="to2">
             <span>路由贰传回来的随机数 : {{r}}</span>
             <left-right-text :info="{text:'路由贰传回来的参数',color:'#000',bgColor:'#20b1aa'}"></left-right-text>
         </div>
@@ -79,6 +79,9 @@ export default {
             ctx.arc(50,50,r,0,2 * Math.PI);
             ctx.closePath();
             ctx.fill();
+        },
+        to2(){
+            this.$router.push({name:"twoC2"})
         }
     },
     components:{
@@ -88,6 +91,7 @@ export default {
         leftRightText
     },
     created(){
+        console.log(this.$route);
         this.r = this.$route.params.random || this.$route.query.random
     },
     mounted(){

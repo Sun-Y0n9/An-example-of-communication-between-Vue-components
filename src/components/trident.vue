@@ -2,7 +2,7 @@
     <div class="tridentCls">
         <div class="item" @click="clickChangeOtherComponentColor">
             <span>子组件</span>
-            <left-right-text :info="{text:'子',color:'#000',bgColor:'#F7E788'}"></left-right-text>
+            <left-right-text @click.native="toC2" :info="{text:'子',color:'#000',bgColor:'#F7E788'}"></left-right-text>
         </div>
         <div class="item" @click="toTwoC1" :style="{backgroundColor:color}">
             <span>{{color}}</span>
@@ -37,7 +37,7 @@ export default {
             Bus.$emit("changeColor", this.color);
         },
         toTwoC1(){
-            this.$router.push({name:"twoC1",params:{color:this.color}});;
+            this.$router.push({name:"twoC1",params:{color:this.color}});
         }
     },
     components:{

@@ -12,16 +12,16 @@
 			<span>点击向父组件传递信息</span>
 			<left-right-text :info="{text:'子',color:'#fff',bgColor:'red'}"></left-right-text>
 		</div>
-      	<div class="radius evtCls">
-  			<div>
-      			<left-right-text :info="{text:'子',color:'#fff',bgColor:'red'}"></left-right-text>
-      			<span>offsetX: <b>{{x}}</b></span>
-  			</div>
-  			<div>
-      			<left-right-text :info="{text:'子',color:'#fff',bgColor:'red'}"></left-right-text>
-      			<span>offsetY: <b>{{y}}</b></span>
-  			</div>
-  		</div>
+		<div class="radius evtCls">
+			<div>
+				<left-right-text :info="{text:'子',color:'#fff',bgColor:'red'}"></left-right-text>
+				<span>offsetX: <b>{{x}}</b></span>
+			</div>
+			<div>
+				<left-right-text :info="{text:'子',color:'#fff',bgColor:'red'}"></left-right-text>
+				<span>offsetY: <b>{{y}}</b></span>
+			</div>
+		</div>
     </div>
 </template>
 <script>

@@ -10,7 +10,6 @@ export default new Router({
   routes: [
     {
       path: "/",
-      name: "home",
       redirect:"one"
     },
     {
@@ -20,19 +19,20 @@ export default new Router({
     },
     {
       path: "/two",
-      redirect:{name:"twoC1"},
       component: Two,
+      name:"two",
       children:[
       	{
-      		path:"/two/twoc1/:color",
+      		path:"twoc1",
       		name:"twoC1",
       		component:TwoC1
       	},
       	{
-      		path:"/two/twoc2",
+      		path:"twoc2",
       		name:"twoC2",
       		component:TwoC2
       	}
-      ]
+      ],
+      redirect:{name:"twoC1"},
     }
 ]})
