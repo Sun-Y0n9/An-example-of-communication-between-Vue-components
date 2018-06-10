@@ -4,7 +4,7 @@
             <span>子组件</span>
             <left-right-text :info="{text:'子',color:'#000',bgColor:'#F7E788'}"></left-right-text>
         </div>
-        <div class="item" @click="toTwoC1">
+        <div class="item" @click="toTwoC1" :style="{backgroundColor:color}">
             <span>{{color}}</span>
             <left-right-text :info="{text:'子',color:'#000',bgColor:'#F7E788'}"></left-right-text>
         </div>

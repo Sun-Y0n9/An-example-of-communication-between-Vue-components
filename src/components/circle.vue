@@ -1,17 +1,17 @@
 <template>
     <div class="circleCls">
-      	<div class="radius" v-bind:style="{borderRadius:radiusNumber+'px'}">
-      		<span>子组件</span>
-      		<left-right-text :info="{text:'子',color:'#fff',bgColor:'red'}"></left-right-text>
-      	</div>
+		<div class="radius" v-bind:style="{borderRadius:radiusNumber+'px'}">
+			<span>子组件</span>
+			<left-right-text :info="{text:'子',color:'#fff',bgColor:'red'}"></left-right-text>
+		</div>
       	<div class="radius a">
       		<span>传递过来radiusNum的值:{{radiusNumber}}</span>
       		<left-right-text :info="{text:'子',color:'#fff',bgColor:'red'}"></left-right-text>
       	</div>
-      	<div class="radius b" @click="changeNumInParent($event)" :style="{backgroundColor:bgC}">
-      		<span>点击向父组件传递信息</span>
-      		<left-right-text :info="{text:'子',color:'#fff',bgColor:'red'}"></left-right-text>
-      	</div>
+		<div class="radius b" @click="changeNumInParent($event)" :style="{backgroundColor:bgC}">
+			<span>点击向父组件传递信息</span>
+			<left-right-text :info="{text:'子',color:'#fff',bgColor:'red'}"></left-right-text>
+		</div>
       	<div class="radius evtCls">
   			<div>
       			<left-right-text :info="{text:'子',color:'#fff',bgColor:'red'}"></left-right-text>
@@ -39,16 +39,16 @@ export default {
     		r:2,
     	}
     },
-    props:{
-    	radiusNum:{
-    		type:Number,
-    		default:10
-    	}
-    },
+	props:{
+		radiusNum:{
+			type:Number,
+			default:10
+		}
+	},
     computed:{
-    	radiusNumber(){{
+    	radiusNumber(){
     		return this.$props.radiusNum
-    	}}
+    	}
     },
     methods:{
 		changeNumInParent(e){
@@ -63,11 +63,11 @@ export default {
 			this.$emit("eventInParent", this.numInSon, this.r, e)
 		}
     },
-    mounted(){
-        Bus.$on("changeColor", (color) => {
-        	this.bgC = color;
-        });
-    },
+	mounted(){
+	    Bus.$on("changeColor", (color) => {
+	    	this.bgC = color;
+	    });
+	},
     components:{
     	leftRightText
     }

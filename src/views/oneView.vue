@@ -6,21 +6,21 @@
                 <span>点击父组件向子组件传递参数</span>
                 <left-right-text :info="{text:'父',color:'#fff',bgColor:'#FF00CD'}"></left-right-text>
             </div>
-            <div class="item">
-                <span>用于显示子组件向父组件传递回来的参数: <b>{{num}}</b></span>
-                <div class="evtCls">
-                    <div>
-                        <span>offsetX: <b>{{x}}</b></span>
-                        <left-right-text :info="{text:'父',color:'#fff',bgColor:'#FF00CD'}"></left-right-text>
-                    </div>
-                    <div>
-                        <span>offsetY: <b>{{y}}</b></span>
-                        <left-right-text :info="{text:'父',color:'#fff',bgColor:'#FF00CD'}"></left-right-text>
-                    </div>
+        <div class="item">
+            <span>用于显示子组件向父组件传递回来的参数: <b>{{num}}</b></span>
+            <div class="evtCls">
+                <div>
+                    <span>offsetX: <b>{{x}}</b></span>
+                    <left-right-text :info="{text:'父',color:'#fff',bgColor:'#FF00CD'}"></left-right-text>
                 </div>
-                <canvas id="canvas" height="100" width="100"></canvas>
-                <left-right-text :info="{text:'父',color:'#fff',bgColor:'#FF00CD'}"></left-right-text>
+                <div>
+                    <span>offsetY: <b>{{y}}</b></span>
+                    <left-right-text :info="{text:'父',color:'#fff',bgColor:'#FF00CD'}"></left-right-text>
+                </div>
             </div>
+            <canvas id="canvas" height="100" width="100"></canvas>
+            <left-right-text :info="{text:'父',color:'#fff',bgColor:'#FF00CD'}"></left-right-text>
+        </div>
         </div>
         <div class="componentItem">
             <border-radius :radius-num="rn" @eventInParent="changeNum"></border-radius>
@@ -29,9 +29,11 @@
         <div class="componentItem">
             <trident></trident>
             <left-right-text :info="{text:'Trident子组件',color:'#000',bgColor:'#F7E788'}"></left-right-text>
-
         </div>
-        <!-- <button @click="changeVariableInOtherRouter">改变其他路由子路由内的值</button> -->
+        <div class="routerParams">
+            <span>路由贰传回来的随机数 : {{r}}</span>
+            <left-right-text :info="{text:'路由贰传回来的参数',color:'#000',bgColor:'#20b1aa'}"></left-right-text>
+        </div>
     </div>
 </template>
 
@@ -48,7 +50,8 @@ export default {
             num:0,
             eventMsg:{},
             x:"",
-            y:""
+            y:"",
+            r:""
         }
     },
     methods:{
@@ -85,7 +88,7 @@ export default {
         leftRightText
     },
     created(){
-        
+        this.r = this.$route.params.random || this.$route.query.random
     },
     mounted(){
         this.draw(2);    
@@ -123,6 +126,10 @@ export default {
                 display: flex;
                 height: 100%;
                 padding-right: 0;
+                span{
+                    padding-right: 5px;
+                    box-sizing:border-box;
+                }
             }
             .evtCls{
                 display: flex;
@@ -157,5 +164,13 @@ export default {
             font-size: 18px;
             color: deeppink;
         }
+    }
+    .routerParams{
+        position: relative;
+        background: #dcdcdc;
+        height:100px;
+        line-height: 100px;
+        text-align:center;
+        font-size: 20px;
     }
 </style>
